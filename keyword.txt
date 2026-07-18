@@ -1,0 +1,18 @@
+keyword 
+basic read co2 dan suhu
+{sensor.readCO2(&co2_ppm, &temp_c)}
+
+Read data dengan 3x
+sensor>readCO2WithRety(&co2_pp,, nullptr, 3)
+
+pengecekan satus ABC 
+sensor.isABCEnabled()
+
+Mematikan ABC
+sensor.setABCFunction(false) mati
+sensor.setABCFunction(true) nyala
+
+zero calibration
+!sensor.isWarmedUp()
+
+sensor.calibrateZeroPoint()
