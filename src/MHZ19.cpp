@@ -383,6 +383,6 @@ void MHZ19::setError(MHZ19_Error error) {
 
 bool setDetectionRangaBoth(MHZ19& uartSensor, MHZ19_PWM& pwmSensor, MHZ19::Range range) {
 	bool uart_ok = uartSensor.setDetectionRange(range);
-	pwmSensor.setRange(range); // always execute, purely update local variable
+	pwmSensor.setRange(range); // selalu jalankan, murni update varibale lokal
 	return uart_ok;
 }

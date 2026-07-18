@@ -1,11 +1,11 @@
 /*
  * MHZ19 Sensor Example - PWM (ESP32)
  *
- * ESP32 sangat fleksibel; attachInterrupt() dapat dipasang di hampir semua pin GPIO.
- * Sinyal PWM dibaca menggunakan fitur 'micros()' hardware timer internal berpresisi tinggi.
+ * The ESP32 is highly flexible; attachInterrupt() can be used on almost any GPIO pin.
+ * The PWM signal is read using the high-precision internal hardware timer 'micros()' function.
  * 
  * Wiring:
- * Sensor PWM -> ESP32 GPIO 4 (Atau pin digital apa saja)
+ * Sensor PWM -> ESP32 GPIO 4 (Or any digital pin)
  * Sensor Vin -> 5V
  * Sensor GND -> GND
  */
@@ -14,14 +14,14 @@
 #include "MHZ19.h"
 #include "MHZ19_ESP32.h"
 
-// Sambungkan pin PWM sensor ke GPIO ini
+// Connect pin PWM sensor to this GPIO
 #define MHZ19_PWM_PIN 4
 
-// Inisialisasi Platform ESP32 PWM
+// Initialize ESP32 PWM Platform
 MHZ19_PWM_ESP32_Platform pwmPlatform;
 
-// Inisialisasi Core Logic PWM, sesuaikan rentang deteksi bawaan sensor
-// Umumnya RANGE_2000PPM atau RANGE_5000PPM
+// Initialize Core Logic PWM, adjust the default detection range according to the sensor
+// Usually RANGE_2000PPM or RANGE_5000PPM
 MHZ19_PWM co2PWM(&pwmPlatform, MHZ19::RANGE_5000PPM);
 
 void setup() {
@@ -29,11 +29,11 @@ void setup() {
     delay(100);
     Serial.println("=== Tes MH-Z19 via PWM (ESP32) ===");
 
-    // Mengaktifkan interrupt untuk membaca siklus sinyal
+    // Activate interrupt for reading signal cycles
     if (co2PWM.begin(MHZ19_PWM_PIN)) {
         Serial.println("PWM capture siap.");
     } else {
-        Serial.println("Gagal menyiapkan PWM capture! Periksa pin yang digunakan.");
+        Serial.println("Failed to initialize PWM capture! Check the pin used.");
     }
 }
 
