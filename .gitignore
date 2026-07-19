@@ -1,0 +1,27 @@
+# === Arduino & build artifacts ===
+build/
+*.bin
+*.elf
+*.hex
+*.map
+*.o
+*.a
+*.d
+*.su
+*.slo
+*.lo
+
+# VS Code
+.vscode/
+.code-workspace
+
+.local/
+**/.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
